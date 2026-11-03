@@ -7,8 +7,8 @@
     "name": "Fioenix",
     "url": "https://github.com/fioenix"
   },
-  "homepage": "https://github.com/fioenix/markmap-skills",
-  "repository": "https://github.com/fioenix/markmap-skills",
+  "homepage": "https://github.com/finolabs/markmap-skills",
+  "repository": "https://github.com/finolabs/markmap-skills",
   "license": "MIT",
   "keywords": [
     "markmap",
@@ -26,10 +26,10 @@
     "longDescription": "Generate interactive Markmap mindmaps from notes, architecture documents, or topics. Produces editable Markdown and HTML with concise branches, folding, and decision tracking. No background server or maintainer telemetry. Offline HTML rendering requires Node.js and markmap-cli; the alternative template loads pinned libraries from jsDelivr and requires network access. The host agent controls file access and conversation data.",
     "category": "Productivity",
     "capabilities": [],
-    "websiteURL": "https://github.com/fioenix/markmap-skills",
-    "supportURL": "https://github.com/fioenix/markmap-skills/issues",
-    "privacyPolicyURL": "https://github.com/fioenix/markmap-skills/blob/main/PRIVACY.md",
-    "termsOfServiceURL": "https://github.com/fioenix/markmap-skills/blob/main/TERMS.md",
+    "websiteURL": "https://github.com/finolabs/markmap-skills",
+    "supportURL": "https://github.com/finolabs/markmap-skills/issues",
+    "privacyPolicyURL": "https://github.com/finolabs/markmap-skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/finolabs/markmap-skills/blob/main/TERMS.md",
     "defaultPrompt": [
       "Create a Markmap mindmap for this system architecture with up to 7 main branches.",
       "Transform these research notes into an interactive Markmap mindmap with depth 3-4.",

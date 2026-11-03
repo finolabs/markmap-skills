@@ -29,7 +29,7 @@ claude plugin validate --strict .
 ```
 
 The test suite validates:
-- JSON integrity across all manifest descriptors (`package.json`, `plugin.json`, `.claude-plugin/`, `.codex-plugin/`, `.agents/`).
+- JSON integrity across all manifest descriptors (`package.json`, `.antigravity-plugin/`, `.claude-plugin/`, `.codex-plugin/`, `.codex/`).
 - Version parity across every versioned manifest via `scripts/sync_version.sh --check`. To bump, run `bash scripts/sync_version.sh <new-version>` instead of editing manifests by hand.
 - String length constraints for marketplace listings (`displayName` ≤ 30, `shortDescription` ≤ 30, `defaultPrompt` ≤ 128 characters).
 - Image and SVG asset format compliance (`assets/icon.svg`, `assets/icon-dark.svg`, `assets/icon.png`, `logo.svg`).
@@ -38,7 +38,7 @@ The test suite validates:
 
 ## 3. Git Tracking & Exclusion Rules
 
-- **Distribution Catalogs**: `.agents/plugins/marketplace.json` and `.claude-plugin/marketplace.json` are public distribution catalogs and **must be tracked**.
+- **Distribution Catalog**: this repository serves no marketplace catalog. The shared `finolabs/plugins` catalog lists it, so do not add `marketplace.json` files here.
 - **Local Tooling**: Local install directories (such as `.agents/skills/`), test caches, `.specify/`, `specs/`, or temporary files (`*.mindmap.html`) **must remain untracked**.
 - Never commit private credentials, personal access tokens, or `.env` files.
 

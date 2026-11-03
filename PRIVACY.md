@@ -30,4 +30,4 @@
 - Choose the compiled `--offline` HTML to avoid CDN library requests when viewing the result. Initial compilation may still download packages from npm. Use `DISABLE_TELEMETRY=1` for Skills CLI installation telemetry, as documented in the README.
 - Anonymize bug reports and contributions. Use GitHub's edit/delete controls where available, or request removal of maintainer-controlled support content without reposting the sensitive material.
 
-For privacy-related inquiries, open a general request on [GitHub Issues](https://github.com/fioenix/markmap-skills/issues). This is a public channel: do not include the sensitive content itself. Maintainers cannot delete data held by your host provider, CDN, registry, backups, or other recipients.
+For privacy-related inquiries, open a general request on [GitHub Issues](https://github.com/finolabs/markmap-skills/issues). This is a public channel: do not include the sensitive content itself. Maintainers cannot delete data held by your host provider, CDN, registry, backups, or other recipients.

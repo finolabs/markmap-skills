@@ -25,25 +25,25 @@
     "url": "https://github.com/fioenix"
   },
   "license": "MIT",
-  "homepage": "https://github.com/fioenix/markmap-skills#readme",
+  "homepage": "https://github.com/finolabs/markmap-skills#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fioenix/markmap-skills.git"
+    "url": "git+https://github.com/finolabs/markmap-skills.git"
   },
   "bugs": {
-    "url": "https://github.com/fioenix/markmap-skills/issues"
+    "url": "https://github.com/finolabs/markmap-skills/issues"
   },
   "files": [
     "skills",
     "scripts",
     "assets",
     "logo.svg",
-    "plugin.json",
     "README.md",
     "LICENSE",
     "PRIVACY.md",
     "TERMS.md",
     "CONTRIBUTING.md",
+    ".antigravity-plugin",
     ".codex-plugin",
     "docs/openai-skills-readiness.md"
   ]
