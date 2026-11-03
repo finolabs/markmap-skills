@@ -76,7 +76,7 @@ Invoke the skill directly in any conversation:
 
 #### Local Development / Manual Link:
 ```bash
-claude plugin add ~/Projects/markmap-skills
+claude --plugin-dir ~/Projects/markmap-skills
 ```
 
 ---
@@ -119,7 +119,13 @@ codex plugin marketplace remove Finolabs         # or agybird / fioenix-plugins
 codex plugin marketplace add finolabs/plugins
 codex plugin add markmap-skills@finolabs
 ```
-To roll back, pin the last release that served its own catalog: `codex plugin marketplace add finolabs/markmap-skills --ref v0.1.4`. Check the command names against `codex plugin --help` for your version.
+To roll back, pin the last release that served its own catalog, `v0.1.4`. Remove `markmap-skills@finolabs` first, because both catalogs share one plugin cache folder on macOS, then register that tag, whose catalog is named `fioenix-plugins`, and install from it:
+```bash
+codex plugin remove markmap-skills@finolabs
+codex plugin marketplace add finolabs/markmap-skills --ref v0.1.4
+codex plugin add markmap-skills@fioenix-plugins
+```
+On Claude Code, which has no pinned marketplace install, clone that tag and add the checkout: `git clone --branch v0.1.4 https://github.com/finolabs/markmap-skills.git /path/to/markmap-skills-v0.1.4`, then `claude plugin marketplace add /path/to/markmap-skills-v0.1.4` and `claude plugin install markmap-skills@fioenix-plugins`. Check the command names against `--help` for your version.
 
 #### Via Agent Skills Directory:
 ```bash
@@ -137,7 +143,7 @@ ln -s ~/Projects/markmap-skills/skills/markmap ~/.agents/skills/markmap
 ### 3. Google Antigravity
 
 #### As a plugin:
-Antigravity resolves `plugin@marketplace` only for its official marketplace, so install from the repository URL:
+The shared FINOLABS catalog does not serve Antigravity, so install from the repository URL:
 ```bash
 agy plugin install https://github.com/finolabs/markmap-skills
 ```
