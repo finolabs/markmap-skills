@@ -13,11 +13,9 @@ cd "$ROOT_DIR"
 PLUGIN_NAME="markmap-skills"
 
 # Parallel arrays: manifest file and the jq path of its version field.
-# .agents/plugins/marketplace.json carries no version field and is intentionally absent.
 VERSIONED_FILES=(
-  "plugin.json"
+  ".antigravity-plugin/plugin.json"
   ".claude-plugin/plugin.json"
-  ".claude-plugin/marketplace.json"
   ".codex-plugin/plugin.json"
   ".codex/plugin.json"
   "package-lock.json"
@@ -26,7 +24,6 @@ VERSIONED_FILES=(
 VERSION_PATHS=(
   ".version"
   ".version"
-  "(.plugins[] | select(.name == \$name) | .version)"
   ".version"
   ".version"
   ".version"

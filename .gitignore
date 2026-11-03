@@ -40,9 +40,8 @@ tmp/
 # Generated mindmap sources from local usage (never publish)
 *.mindmap.md
 
-# Agent local tooling vs distribution catalog
+# Agent local tooling
 .agents/skills/
-!.agents/plugins/marketplace.json
 
 # Spec Kit (local only)
 .specify/

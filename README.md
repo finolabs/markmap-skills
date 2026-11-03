@@ -13,10 +13,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/fioenix/markmap-skills/actions/workflows/ci.yml"><img src="https://github.com/fioenix/markmap-skills/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
-  <a href="https://github.com/fioenix/markmap-skills"><img src="https://img.shields.io/badge/Packaging-Checked-7FE2CE?logo=anthropic&logoColor=0B0B17" alt="Packaging checked locally" /></a>
-  <a href="https://github.com/fioenix/markmap-skills"><img src="https://img.shields.io/badge/Runtime-Zero--Daemon-9750C4" alt="Zero Daemon" /></a>
-  <a href="https://github.com/fioenix/markmap-skills"><img src="https://img.shields.io/badge/Agents-Claude%20%7C%20Codex%20%7C%20Antigravity-18181b" alt="Agent Support" /></a>
+  <a href="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml"><img src="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
+  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Packaging-Checked-7FE2CE?logo=anthropic&logoColor=0B0B17" alt="Packaging checked locally" /></a>
+  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Runtime-Zero--Daemon-9750C4" alt="Zero Daemon" /></a>
+  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Agents-Claude%20%7C%20Codex%20%7C%20Antigravity-18181b" alt="Agent Support" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
 </p>
@@ -55,22 +55,22 @@ The examples below illustrate formatting, not benchmark results or comparisons w
 
 ### 1. Claude Code
 
-#### Via Public Marketplace (Recommended):
+#### Via the FINOLABS catalog (Recommended):
 In your Claude Code terminal session:
-```text
-/plugin marketplace add fioenix/markmap-skills
-/plugin install markmap-skills@fioenix-plugins
+```bash
+claude plugin marketplace add finolabs/plugins
+claude plugin install markmap-skills@finolabs
 ```
 Invoke the skill directly in any conversation:
 ```text
 /markmap-skills:markmap Create an architecture mindmap for this microservices system
 ```
 
-> **Upgrading from `mindmap-skills`?** The plugin was renamed. Run `/plugin uninstall mindmap-skills@fioenix-plugins`, then install `markmap-skills@fioenix-plugins` as above. The command is now `/markmap-skills:markmap`.
+> **Installed `markmap-skills@fioenix-plugins` or `mindmap-skills@fioenix-plugins`?** This repository no longer serves a marketplace of its own. Run `claude plugin uninstall markmap-skills@fioenix-plugins` and `claude plugin marketplace remove fioenix-plugins`, then install `markmap-skills@finolabs` as above. The command is `/markmap-skills:markmap`.
 
 #### On Claude Desktop / Web UI:
 1. Navigate to **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**.
-2. Enter repository: `fioenix/markmap-skills`.
+2. Enter repository: `finolabs/plugins`.
 3. In Discover, select **markmap-skills** and click **Add**.
 4. Invoke in chat using `/markmap` or via the `+` menu.
 
@@ -85,7 +85,7 @@ claude plugin add ~/Projects/markmap-skills
 
 #### Via Skills CLI:
 ```bash
-DISABLE_TELEMETRY=1 npx --yes skills@1.5.20 add fioenix/markmap-skills --skill markmap --agent codex --global
+DISABLE_TELEMETRY=1 npx --yes skills@1.5.20 add finolabs/markmap-skills --skill markmap --agent codex --global
 ```
 
 This installs the skill, not an approved OpenAI directory plugin. The Skills CLI normally reports install telemetry; this command opts out. [skills.sh listings](https://skills.sh/docs/faq) are driven by user installs with telemetry. No listing or OpenAI approval is claimed here.
@@ -104,28 +104,22 @@ The ZIP uses the supported `.codex-plugin/plugin.json` layout and contains exact
 
 This OpenAI package retains its Desktop-only declaration for the local Node.js/npx rendering workflow. If accepted and published in the Directory in the future, that declaration restricts installation to the ChatGPT desktop app and use to locally running threads. The CDN template does not remove this restriction. The declaration neither creates an OpenAI listing nor bypasses the current intake restriction. Direct skill installation through other distributions is unchanged.
 
-#### Via Shared Finolabs Marketplace Catalog (`Finolabs`):
-The canonical multi-plugin Codex catalog (`name: "Finolabs"`, `interface.displayName: "Finolabs"`) is published in `fioenix/agybird` and groups `agybird` (`agybird@Finolabs`), `vietnamizer` (`vietnamizer@Finolabs`), and `markmap-skills` (`markmap-skills@Finolabs`) without merging repositories.
-
-**Fresh installation (when no legacy `agybird` marketplace is registered):**
+#### Via the FINOLABS catalog (`finolabs`):
 ```bash
-codex plugin marketplace add fioenix/agybird
-codex plugin add markmap-skills@Finolabs
+codex plugin marketplace add finolabs/plugins
+codex plugin add markmap-skills@finolabs
 ```
 
-* **Shared Catalog Registration & Selector**:
-  - Fresh installs without a prior `agybird` registration can register `fioenix/agybird` directly via Git (or register a local checkout path where `.agents/plugins/marketplace.json` declares `name: "Finolabs"`).
-  - Install using the canonical exact-case selector: `markmap-skills@Finolabs`.
-* **Legacy Compatibility (`markmap-skills@fioenix-plugins`)**:
-  - This repository keeps its own `.agents/plugins/marketplace.json` (`name: "fioenix-plugins"`) unchanged for standalone backward compatibility using selector `markmap-skills@fioenix-plugins` (not `@markmap-skills`), rather than renaming or duplicating the canonical `Finolabs` catalog here.
-* **Migration (from `@agybird` or `@fioenix-plugins`) & Rollback**:
-  - **Why side-by-side local registration is required for `@agybird` users**: Codex `marketplace upgrade` rejects a catalog whose fetched `name` (`"Finolabs"`) differs from the configured `name` (`"agybird"`), and re-running `marketplace add` with the same Git repository URL before removing `agybird` can reuse the existing Git-registered source instead of creating a new entry. Do **not** use `marketplace upgrade agybird` as a rename mechanism.
-  1. **Back up** your current Codex plugin configuration and marketplace registrations before making changes.
-  2. **Prepare a distinct local checkout** of the updated `fioenix/agybird` repository (for example, `git clone https://github.com/fioenix/agybird.git /path/to/finolabs-catalog` or an existing updated local checkout such as `~/Projects/agybird`) and confirm its `.agents/plugins/marketplace.json` declares `"name": "Finolabs"`.
-  3. **Register side-by-side & install**: run `codex plugin marketplace add /path/to/finolabs-catalog` to register `Finolabs` alongside your existing Git-registered `agybird` catalog, then install `codex plugin add markmap-skills@Finolabs` (and `agybird@Finolabs`, `vietnamizer@Finolabs` if used). Keeping the local `Finolabs` catalog registration is sufficient on its own.
-  4. **Verify replacement first, then remove old entries**: confirm the `@Finolabs` plugin(s) load and render as expected **before** removing old `markmap-skills@agybird` (or `markmap-skills@fioenix-plugins`) plugin installations and removing the old `agybird` (or standalone `fioenix/markmap-skills`) marketplace registration via supported Codex CLI commands.
-  5. **Rollback**: because an unpinned `fioenix/agybird` registration now resolves `name: "Finolabs"`, rolling back to `@agybird` requires explicitly registering the pinned pre-rename tag with `codex plugin marketplace add fioenix/agybird --ref v0.2.1` (commit `25ad82943fab90224918603e05fe23f4fa65847a`, which still declares `name: "agybird"`, or registering a retained local snapshot of that catalog), reinstalling your desired `@agybird` selector (`codex plugin add markmap-skills@agybird`), and verifying it works before removing `Finolabs`; alternatively, restore your backed-up configuration or fall back to this repository's standalone `.agents/plugins/marketplace.json` with `markmap-skills@fioenix-plugins`.
-* **Release Note (`v0.1.4`)**: Documents shared `Finolabs` (`fioenix/agybird`) Codex catalog registration (`markmap-skills@Finolabs`) alongside side-by-side local checkout migration from prior `@agybird` and legacy `markmap-skills@fioenix-plugins` compatibility and rollback guidance; runtime behavior and the standalone compatibility catalog remain unchanged.
+Refresh the catalog with `codex plugin marketplace upgrade finolabs`, then run `codex plugin add markmap-skills@finolabs` again. Codex caches each plugin by the version in `.codex-plugin/plugin.json`.
+
+**Installed from an older catalog?** This repository no longer serves one. Only if `codex plugin list` shows `markmap-skills@Finolabs`, `markmap-skills@agybird` or `markmap-skills@fioenix-plugins`, remove that plugin and its marketplace before adding `finolabs/plugins`; on macOS `Finolabs` and `finolabs` share one plugin cache folder, so installing from both overwrites the plugin:
+```bash
+codex plugin remove markmap-skills@Finolabs      # or the selector you installed
+codex plugin marketplace remove Finolabs         # or agybird / fioenix-plugins
+codex plugin marketplace add finolabs/plugins
+codex plugin add markmap-skills@finolabs
+```
+To roll back, pin the last release that served its own catalog: `codex plugin marketplace add finolabs/markmap-skills --ref v0.1.4`. Check the command names against `codex plugin --help` for your version.
 
 #### Via Agent Skills Directory:
 ```bash
@@ -141,6 +135,13 @@ ln -s ~/Projects/markmap-skills/skills/markmap ~/.agents/skills/markmap
 ---
 
 ### 3. Google Antigravity
+
+#### As a plugin:
+Antigravity resolves `plugin@marketplace` only for its official marketplace, so install from the repository URL:
+```bash
+agy plugin install https://github.com/finolabs/markmap-skills
+```
+Check it with `agy plugin list`. There is no catalog to upgrade from, so run the command again to pick up a new release.
 
 #### Machine-Global:
 ```bash
@@ -242,19 +243,16 @@ markmap-skills/
 │   │   └── ci.yml              # Automated GitHub Actions CI workflow
 │   ├── ISSUE_TEMPLATE/         # Structured bug & feature request templates
 │   └── PULL_REQUEST_TEMPLATE.md# Pull request validation checklist
+├── .antigravity-plugin/
+│   └── plugin.json             # Antigravity plugin manifest
 ├── .claude-plugin/
-│   ├── marketplace.json        # Claude Code marketplace catalog definition
 │   └── plugin.json             # Claude Code plugin manifest (with URLs & icons)
 ├── .codex-plugin/
 │   └── plugin.json             # OpenAI Codex plugin manifest (interface & translations)
 ├── .codex/
 │   └── plugin.json             # Legacy Codex compatibility manifest
-├── .agents/
-│   └── plugins/
-│       └── marketplace.json    # Agent ecosystem distribution catalog
 ├── agents/
 │   └── openai.yaml             # Legacy interface descriptor; canonical copy is in the skill
-├── plugin.json                 # Universal / Antigravity plugin descriptor
 ├── package.json                # npm package descriptor (skills.sh discovers SKILL.md)
 ├── assets/
 │   ├── icon.svg                # Vector SVG icon (FINOLABS Design System)
@@ -296,4 +294,4 @@ markmap-skills/
 
 * **License**: [MIT License](LICENSE) © [Fioenix](https://github.com/fioenix)
 * **Contributing**: Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting pull requests.
-* **Issues & Feedback**: [GitHub Issues](https://github.com/fioenix/markmap-skills/issues)
+* **Issues & Feedback**: [GitHub Issues](https://github.com/finolabs/markmap-skills/issues)

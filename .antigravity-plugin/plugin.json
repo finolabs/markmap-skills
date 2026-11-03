@@ -1,0 +1,22 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "markmap-skills",
+  "displayName": "Markmap Skills",
+  "description": "Markmap mindmaps for AI agents with strict cognitive structuring, as clean .mindmap.md files and standalone HTML.",
+  "version": "0.1.4",
+  "logo": "./assets/icon.svg",
+  "skills": "./skills/",
+  "author": {
+    "name": "Fioenix",
+    "url": "https://github.com/fioenix"
+  },
+  "homepage": "https://github.com/finolabs/markmap-skills",
+  "repository": "https://github.com/finolabs/markmap-skills",
+  "license": "MIT",
+  "keywords": ["markmap", "mindmap", "visualization", "diagram", "agent-skills"],
+  "suggestedPrompts": [
+    "Create a Markmap mindmap for this system architecture with up to 7 main branches.",
+    "Transform these research notes into an interactive Markmap mindmap with depth 3-4.",
+    "Generate an interactive Markmap mindmap highlighting key concepts and decisions."
+  ]
+}

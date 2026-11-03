@@ -13,12 +13,10 @@ echo ""
 echo "=== [1/8] Manifest Integrity & JSON Syntax ==="
 MANIFEST_FILES=(
   "package.json"
-  "plugin.json"
+  ".antigravity-plugin/plugin.json"
   ".claude-plugin/plugin.json"
-  ".claude-plugin/marketplace.json"
   ".codex-plugin/plugin.json"
   ".codex/plugin.json"
-  ".agents/plugins/marketplace.json"
 )
 
 for file in "${MANIFEST_FILES[@]}"; do
