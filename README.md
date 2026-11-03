@@ -98,7 +98,7 @@ As of 2026-10-23, the owner reports that the OpenAI submission portal displays: 
 
 Local packaging remains available for testing and a future eligible submission; building a ZIP does not mean OpenAI is accepting it:
 ```bash
-python3 scripts/package_plugin.py /tmp/markmap-skills-0.1.4.zip
+python3 scripts/package_plugin.py /tmp/markmap-skills-0.2.0.zip
 ```
 The ZIP uses the supported `.codex-plugin/plugin.json` layout and contains exactly one plugin root. It excludes development files and compatibility catalogs. Resume submission preparation only after confirming that [Platform Plugins](https://platform.openai.com/plugins) accepts the submitting organization and package type. Identity verification, scans, review, and publication are separate gates; local checks and historical readiness receipts do not establish approval.
 
