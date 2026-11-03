@@ -9,7 +9,7 @@
   "privacyPolicyUrl": "https://github.com/finolabs/markmap-skills/blob/main/PRIVACY.md",
   "termsOfServiceUrl": "https://github.com/finolabs/markmap-skills/blob/main/TERMS.md",
   "description": "Markmap mindmaps for AI agents with strict cognitive structuring, delivered as clean .mindmap.md files and standalone HTML pages.",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "author": {
     "name": "Fioenix",
     "url": "https://github.com/fioenix"

@@ -1,6 +1,6 @@
 {
   "name": "markmap-skills",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Markmap mindmaps for AI agents with strict cognitive structuring, delivered as clean .mindmap.md files and standalone HTML pages.",
   "author": {
     "name": "Fioenix",
