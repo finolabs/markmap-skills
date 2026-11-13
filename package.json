@@ -1,7 +1,7 @@
 {
   "name": "markmap-skills",
   "version": "0.2.0",
-  "description": "Markmap mindmaps for AI agents with strict cognitive structuring, delivered as clean .mindmap.md files and standalone HTML pages.",
+  "description": "Turn notes and documents into editable Markdown and interactive Markmap mindmaps, for Claude Code, Codex and Antigravity. No background daemon.",
   "type": "module",
   "icon": "./assets/icon.svg",
   "scripts": {

@@ -8,7 +8,7 @@
   "supportUrl": "https://github.com/finolabs/markmap-skills/issues",
   "privacyPolicyUrl": "https://github.com/finolabs/markmap-skills/blob/main/PRIVACY.md",
   "termsOfServiceUrl": "https://github.com/finolabs/markmap-skills/blob/main/TERMS.md",
-  "description": "Markmap mindmaps for AI agents with strict cognitive structuring, delivered as clean .mindmap.md files and standalone HTML pages.",
+  "description": "Turn notes and documents into editable Markdown and interactive Markmap mindmaps, for Claude Code, Codex and Antigravity. No background daemon.",
   "version": "0.2.0",
   "author": {
     "name": "Fioenix",
