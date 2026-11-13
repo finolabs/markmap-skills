@@ -1,0 +1,15 @@
+{
+  "name": "Markmap Skills",
+  "tagline": "Turn notes into editable,\ninteractive mindmaps.",
+  "mark": "../assets/icon-dark.svg",
+  "input": "Create an architecture mindmap\nfor this microservices system",
+  "output": "## Gateway\n- **Auth**: JWT, RSA\n- **Rate limit**: token bucket\n- ~~Kong: idle cost~~\n- [ ] Reconnect backoff",
+  "footer": [
+    "A plugin for **Claude Code**, **Codex** and **Antigravity**",
+    "MIT licensed, github.com/finolabs/markmap-skills"
+  ],
+  "layout": {
+    "titleSize": 76,
+    "outputX": 836
+  }
+}

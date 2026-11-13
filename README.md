@@ -1,33 +1,33 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/icon-dark.svg">
-    <img src="assets/icon.svg" width="96" height="96" alt="markmap-skills icon">
+    <img src="assets/icon.svg" alt="Markmap Skills icon: a node branching into three" width="88">
   </picture>
 </p>
 
 <h1 align="center">markmap-skills</h1>
 
+<p align="center"><strong>Turn notes into editable, interactive mindmaps.</strong><br>
+Turn notes and documents into editable Markdown and interactive Markmap mindmaps, for Claude Code, Codex and Antigravity. No background daemon; the branching rules are guidance your agent follows.</p>
+
 <p align="center">
-  <b>Create structured Markmap mindmaps with your AI agent.</b><br>
-  Structured branches · Folding and decision tracking · Editable Markdown and interactive HTML.
+  <a href="https://github.com/finolabs/markmap-skills/releases/latest"><img src="https://img.shields.io/github/v/release/finolabs/markmap-skills" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/finolabs/markmap-skills" alt="License: MIT"></a>
+  <a href="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml"><img src="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
+  <a href="#claude-code"><img src="https://img.shields.io/badge/Claude%20Code-plugin-7FE2CE" alt="Claude Code plugin"></a>
+  <a href="#openai-codex"><img src="https://img.shields.io/badge/Codex-plugin-7FE2CE" alt="Codex plugin"></a>
+  <a href="#google-antigravity"><img src="https://img.shields.io/badge/Antigravity-plugin-7FE2CE" alt="Antigravity plugin"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml"><img src="https://github.com/finolabs/markmap-skills/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
-  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Packaging-Checked-7FE2CE?logo=anthropic&logoColor=0B0B17" alt="Packaging checked locally" /></a>
-  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Runtime-Zero--Daemon-9750C4" alt="Zero Daemon" /></a>
-  <a href="https://github.com/finolabs/markmap-skills"><img src="https://img.shields.io/badge/Agents-Claude%20%7C%20Codex%20%7C%20Antigravity-18181b" alt="Agent Support" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+  <img src="docs/assets/banner.png" alt="Banner: Markmap Skills, turn notes into editable, interactive mindmaps. The prompt &quot;Create an architecture mindmap for this microservices system&quot; returns a Markdown mindmap with a Gateway branch: auth, rate limit, a struck-out Kong option and an open reconnect task." width="920">
 </p>
 
----
-
-## ⚡ What It Does
+## What you get
 
 `markmap-skills` turns task-authorized notes and documents into editable Markdown and interactive Markmap HTML. Its instructions guide branch grouping, concise labels, folding, and decision tracking. Review generated content against your source before relying on it.
 
-### Outputs and Requirements
+### Outputs and requirements
 
 | Output or behavior | Requirements and limits |
 |---|---|
@@ -39,7 +39,33 @@
 
 ---
 
-## 🔍 Example Transformations
+## Install at a glance
+
+Run the commands for your host, then open a new chat. See [Install](#install) for the desktop app, migration and plain-skill options.
+
+**Claude Code** (in a terminal):
+
+```bash
+claude plugin marketplace add finolabs/plugins
+claude plugin install markmap-skills@finolabs
+```
+
+**Codex** (in a terminal):
+
+```bash
+codex plugin marketplace add finolabs/plugins
+codex plugin add markmap-skills@finolabs
+```
+
+**Antigravity** (in a terminal):
+
+```bash
+agy plugin install https://github.com/finolabs/markmap-skills
+```
+
+---
+
+## Example transformations
 
 The examples below illustrate formatting, not benchmark results or comparisons with other products. Include only facts and decisions supported by the input.
 
@@ -51,9 +77,32 @@ The examples below illustrate formatting, not benchmark results or comparisons w
 
 ---
 
-## 📦 Quick Installation
+## For AI agents: install and set up
 
-### 1. Claude Code
+You were given this repository's link to install it for the user. Follow these steps in order.
+
+1. **Find your host**: Claude Code, Codex, Antigravity, or another agent that reads Agent Skills.
+2. **Confirm with the user before installing.** The install changes their agent configuration for every project. Offer the plugin by default and the plain skill as the alternative; install only one of the two, since both together list the skill twice.
+3. **Check for an existing install**: run `claude plugin list` or `codex plugin list`. If the skill is installed as `markmap-skills@fioenix-plugins`, `mindmap-skills@fioenix-plugins` or from the older `Finolabs` catalog, stop and ask the user, then follow the migration notes under [Install](#install).
+4. **Install** with your host's commands:
+
+   | Host | Commands |
+   | --- | --- |
+   | Claude Code | `claude plugin marketplace add finolabs/plugins`, then `claude plugin install markmap-skills@finolabs` |
+   | Codex | `codex plugin marketplace add finolabs/plugins`, then `codex plugin add markmap-skills@finolabs` |
+   | Antigravity | `agy plugin install https://github.com/finolabs/markmap-skills` |
+   | Other agents | `npx skills add finolabs/markmap-skills --skill markmap` |
+
+5. **Verify** that `claude plugin list`, `codex plugin list` or `agy plugin list` shows `markmap-skills`, and report the output to the user as it is, failures included.
+6. **Hand over.** Tell the user to open a new session. HTML output needs Node.js and `markmap-cli` (see [Outputs and requirements](#outputs-and-requirements)); Markdown output needs nothing extra.
+
+Done when the host lists `markmap-skills` and the user knows to open a new session.
+
+---
+
+## Install
+
+### Claude Code
 
 #### Via the FINOLABS catalog (Recommended):
 In your Claude Code terminal session:
@@ -76,12 +125,12 @@ Invoke the skill directly in any conversation:
 
 #### Local Development / Manual Link:
 ```bash
-claude --plugin-dir ~/Projects/markmap-skills
+claude --plugin-dir /path/to/markmap-skills
 ```
 
 ---
 
-### 2. OpenAI Codex
+### OpenAI Codex
 
 #### Via Skills CLI:
 ```bash
@@ -131,16 +180,16 @@ On Claude Code, which has no pinned marketplace install, clone that tag and add 
 ```bash
 # In a specific project
 mkdir -p .agents/skills
-cp -r ~/Projects/markmap-skills/skills/markmap .agents/skills/
+cp -r /path/to/markmap-skills/skills/markmap .agents/skills/
 
 # Or machine-global
 mkdir -p ~/.agents/skills
-ln -s ~/Projects/markmap-skills/skills/markmap ~/.agents/skills/markmap
+ln -s /path/to/markmap-skills/skills/markmap ~/.agents/skills/markmap
 ```
 
 ---
 
-### 3. Google Antigravity
+### Google Antigravity
 
 #### As a plugin:
 The shared FINOLABS catalog does not serve Antigravity, so install from the repository URL:
@@ -152,18 +201,18 @@ Check it with `agy plugin list`. There is no catalog to upgrade from, so run the
 #### Machine-Global:
 ```bash
 mkdir -p ~/.gemini/config/skills
-ln -s ~/Projects/markmap-skills/skills/markmap ~/.gemini/config/skills/markmap
+ln -s /path/to/markmap-skills/skills/markmap ~/.gemini/config/skills/markmap
 ```
 
 #### Workspace-Local:
 ```bash
 mkdir -p .agents/skills
-cp -r ~/Projects/markmap-skills/skills/markmap .agents/skills/
+cp -r /path/to/markmap-skills/skills/markmap .agents/skills/
 ```
 
 ---
 
-## 📋 Cognitive Structuring Invariants
+## Cognitive structuring invariants
 
 Every generated mindmap adheres strictly to official Markmap standards and information architecture principles:
 
@@ -207,7 +256,7 @@ markmap:
 
 ---
 
-## 🔄 Opportunistic Multi-Skill Synergy
+## Works well with
 
 `markmap-skills` can structure a mindmap without auxiliary skills. HTML rendering has the requirements listed above. When complementary skills are already available in the host agent, their outputs can also become mindmap inputs:
 
@@ -217,7 +266,7 @@ markmap:
 | **`brainstorming`** | Divergent thinking, exploratory ideation, sprawling idea generation. | **Convergent Affinity Map**: Gathers unstructured ideas into 4–7 MECE categories with actionable checkboxes. |
 | **Spec Kit (`.specify/`)** | Defines formal functional specifications (`spec.md`). | **Functional Decomposition**: Visually maps user stories, data entities, and acceptance criteria. |
 
-### Practical Synergy Scenarios:
+### Practical scenarios
 
 #### Scenario 1: Paired with `grilling`
 > **User Prompt:** *"Use grilling to stress-test this architecture proposal, then synthesize the decisions into a mindmap."*
@@ -240,7 +289,7 @@ markmap:
 
 ---
 
-## 🛠️ Repository Architecture
+## Repository layout
 
 ```text
 markmap-skills/
@@ -261,7 +310,7 @@ markmap-skills/
 │   └── openai.yaml             # Legacy interface descriptor; canonical copy is in the skill
 ├── package.json                # npm package descriptor (skills.sh discovers SKILL.md)
 ├── assets/
-│   ├── icon.svg                # Vector SVG icon (FINOLABS Design System)
+│   ├── icon.svg                # Vector SVG icon
 │   ├── icon-dark.svg           # Dark mode vector SVG icon
 │   └── icon.png                # 512x512 PNG marketplace icon
 ├── logo.svg                    # Root vector logo
@@ -287,7 +336,7 @@ markmap-skills/
 
 ---
 
-## 🔒 Security Posture & Privacy
+## Security and privacy
 
 * **No Maintainer Backend or Telemetry**: Host agent data policies apply. CDN HTML requests pinned libraries from jsDelivr; first CLI rendering may download packages from npm. Compiled `--offline` output embeds libraries. Skills CLI installation has its own optional telemetry.
 * **Template Content Isolation**: JSON-encode Markdown and escape every `<` before embedding; HTML-escape titles. CDN template nodes display source text with links, images, and raw HTML disabled. The CSP is defense in depth, not a substitute for encoding. CLI-generated HTML has its own rendering behavior; use trusted source content.
@@ -296,8 +345,10 @@ markmap-skills/
 
 ---
 
-## 📄 License & Community
+## Contributing
 
-* **License**: [MIT License](LICENSE) © [Fioenix](https://github.com/fioenix)
-* **Contributing**: Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting pull requests.
-* **Issues & Feedback**: [GitHub Issues](https://github.com/finolabs/markmap-skills/issues)
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Report bugs and ideas in [GitHub Issues](https://github.com/finolabs/markmap-skills/issues).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
